@@ -32,7 +32,12 @@ const db = mysql.createConnection(
 //     });
 // });
 
-// Default response for any other request (Not Found)
+// query the database
+db.query(`SELECT * FROM candidates`, (err, rows) => {
+    console.log(rows);
+});
+
+// Default response for any other request (Not Found) / 'catchall' route
 app.use((req, res) => {
     res.status(404).end();
 });
